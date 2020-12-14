@@ -58,3 +58,20 @@ const findSum = function(array) {
     }
     return largestProduct;
   };
+  //console.log(largestPair([5,1,2,3,1,4]))
+ // console.log(largestPair([9,5,10,2,24,-1,-48]))
+
+const removeParenth = function(str) {
+    // your code here - don't forget to return a string!
+    let startSlice = (str.indexOf('('));
+    let endSlice = (str.indexOf(')') + 1);
+
+    console.log(str.slice(startSlice, endSlice));
+   // console.log(str);
+  };
+
+ // console.log(removeParenth('ido(not)liketocode'));
+  
+  const scoreScrabble = function(str) {
+    // your code here - don't forget to return a number!
+  };

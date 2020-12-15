@@ -18,12 +18,18 @@ const findSum = function(array) {
     let counter = 0;
     for (const el of array) {
       for (let j = 0; j < array.length; j++) {
-          if (el === array[j]) {
+
+        if (el === array[j]) {
               counter += 1;
-              if (counter > highestCount) {
+              if (leastCount === 0 && highestCount === 0) {
+                  leastCount = counter;
+                  leastFrequentElement = el;
                   highestCount = counter;
                   mostFrequentElement = el;
-              } else if (counter <= leastCount || leastCount === 0) {
+              } else if (counter > highestCount) {
+                  highestCount = counter;
+                  mostFrequentElement = el;
+              } else if (counter < leastCount) {
                   leastCount = counter;
                   leastFrequentElement = el;
               }
@@ -31,9 +37,12 @@ const findSum = function(array) {
       }
       counter = 0;
     }
+    
+    console.log(highestCount);
     return {most: mostFrequentElement, least: leastFrequentElement};
   };
- // console.log(findFrequency(['a', 'b', 'c', 'a', 'b', 'c', 'a', 'a', 'd']));
+  console.log(findFrequency(['a', 'a', 'b', 'b', 'c', 'd', 'd', 'd']));
+  console.log(findFrequency(['a', 'banana', 'a', 'd', 'd', 'd', 'd', 'b', 'b', 'c', 'c']));
   
   const isPalindrome = function(str) {
     // your code here - don't forget to return a boolean!

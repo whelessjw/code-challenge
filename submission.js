@@ -14,35 +14,31 @@ const findSum = function(array) {
     let mostFrequentElement;
     let leastFrequentElement;
     let highestCount = 0;
-    let leastCount = 0;
+    let leastCount = array.length;
     let counter = 0;
     for (const el of array) {
-      for (let j = 0; j < array.length; j++) {
-
+        
+        for (let j = 0; j < array.length; j++) {
         if (el === array[j]) {
               counter += 1;
-              if (leastCount === 0 && highestCount === 0) {
-                  leastCount = counter;
-                  leastFrequentElement = el;
+              if (counter > highestCount) {
                   highestCount = counter;
                   mostFrequentElement = el;
-              } else if (counter > highestCount) {
-                  highestCount = counter;
-                  mostFrequentElement = el;
-              } else if (counter < leastCount) {
-                  leastCount = counter;
-                  leastFrequentElement = el;
               }
           }
+      }
+
+      if (counter < leastCount) {
+        leastCount = counter;
+        leastFrequentElement = el;
       }
       counter = 0;
     }
     
-    console.log(highestCount);
     return {most: mostFrequentElement, least: leastFrequentElement};
   };
-  console.log(findFrequency(['a', 'a', 'b', 'b', 'c', 'd', 'd', 'd']));
-  console.log(findFrequency(['a', 'banana', 'a', 'd', 'd', 'd', 'd', 'b', 'b', 'c', 'c']));
+  //console.log(findFrequency(['a', 'a', 'b', 'b', 'c', 'd', 'd', 'd']));
+ // console.log(findFrequency(['a', 'banana', 'a', 'd', 'd', 'd', 'd', 'b', 'b', 'c', 'c']));
   
   const isPalindrome = function(str) {
     // your code here - don't forget to return a boolean!
